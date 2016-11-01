@@ -1,0 +1,28 @@
+1：Struts如何与Servlet共存于一个工程。
+	
+	A：struts默认访问Action的后缀为action或者空的。
+	
+		通过这个特性，将Servlet在web.xml中映射的地址进行改变。绕过STruts的请求过滤。
+		
+		
+		<servlet>
+			<servlet-name>TestServlet</servlet-name>
+			<servlet-class>com.servlet.TestServlet</servlet-class>
+		</servlet>
+	
+		<servlet-mapping>
+			<servlet-name>TestServlet</servlet-name>
+			<url-pattern>/servlet/TestServlet.svr</url-pattern>
+		</servlet-mapping>
+		
+		<a href="<%=path%>/servlet/TestServlet.svr">1：Servlet在Struts工程中的访问</a>
+		
+	
+	B：重写Struts的过滤器。根据请求的地址来决定要不要调用Struts的过滤器。
+	
+	
+2：Struts中Action的类型
+
+	
+	
+			

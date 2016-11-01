@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 请求编码的设置,只针对POST请求有效，GET请求无效 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!-- 文件上传大小设置 -->
+	<constant name="struts.multipart.maxSize" value="209715200"></constant>
+	<!-- struts后缀名的设置 -->
+	<constant name="struts.action.extension" value="action,,"></constant>
+	<!-- 是否开启动态方法调用设置 -->
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="true">
+	</constant>
+
+	<!-- 开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- struts.xml更改时，是否重新加载 -->
+	<constant name="struts.i18n.reload" value="true"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- 是否允许OGNL表达式访问静态方法 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+
+
+	<package name="default" namespace="/" extends="struts-default">
+
+	</package>
+
+
+	<package name="type" namespace="/type" extends="struts-default">
+		<action name="actiontype_One"
+			class="com.action.type.ActionType_One">
+		</action>
+
+		<action name="actiontype_Two"
+			class="com.action.type.ActionType_Two">
+		</action>
+
+		<action name="actiontype_Three"
+			class="com.action.type.ActionType_Three">
+		</action>
+	</package>
+
+	<package name="method" namespace="/method"
+		extends="struts-default">
+		<action name="actionMethod_One_List"
+			class="com.action.method.ActionMethod_One" method="list">
+		</action>
+		<action name="actionMethod_One_Add"
+			class="com.action.method.ActionMethod_One" method="add">
+		</action>
+		<action name="actionMethod_One_Edit"
+			class="com.action.method.ActionMethod_One" method="edit">
+		</action>
+		<action name="actionMethod_One_Delete"
+			class="com.action.method.ActionMethod_One" method="delete">
+		</action>
+
+		<action name="actionMethod_Two"
+			class="com.action.method.ActionMethod_Two">
+		</action>
+
+		<action name="actionMethod_Three_*"
+			class="com.action.method.ActionMethod_Three" method="{1}">
+		</action>
+	</package>
+
+	<package name="servletobj" namespace="/servletobj"
+		extends="struts-default">
+		<action name="servletObj_One"
+			class="com.action.servletobj.ServletObj_One">
+		</action>
+
+		<action name="servletObj_Two"
+			class="com.action.servletobj.ServletObj_Two">
+		</action>
+	</package>
+
+	<package name="param" namespace="/param" extends="struts-default">
+		<action name="paramAction_One"
+			class="com.action.param.ParamAction_One">
+		</action>
+
+		<action name="paramAction_Two"
+			class="com.action.param.ParamAction_Two">
+		</action>
+
+	</package>
+
+	<package name="response" namespace="/response"
+		extends="struts-default">
+		<action name="responseAction"
+			class="com.action.response.ResponseAction">
+			<result name="success">/out.jsp</result>
+		</action>
+	</package>
+
+</struts>
